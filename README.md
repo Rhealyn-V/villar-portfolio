@@ -35,7 +35,7 @@ npm run lint       # lint
 | Colors, fonts, shadows | `tailwind.config.js` |
 | SEO title / description / keywords | `index.html` |
 | Your photo | replace `public/mypicture.jpg` (also `favicon.jpg`, `og-image.jpg`) |
-| Downloadable PDF | add `public/Rhealyn-Villar-Resume.pdf`, or use `/resume` → Print → Save as PDF |
+| Downloadable resume | replace `public/Rhealyn-Villar-Resume.pdf` (PDF) and `public/Rhealyn-Villar-Resume.docx` (Word), or use `/resume` → Print → Save as PDF |
 
 > Search the codebase for `[PLACEHOLDER]`-style markers (e.g. `[COMPANY NAME]`,
 > `[YOUR PHONE NUMBER]`) and fill in your real details.

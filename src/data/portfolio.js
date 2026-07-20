@@ -24,7 +24,8 @@ export const profile = {
   // Contact details — fill in the real values.
   email: "villar.rhealyn.01@gmail.com",
   phone: "[YOUR PHONE NUMBER]",
-  resumeFile: "/Rhealyn-Villar-Resume.pdf", // add a PDF to /public, or use the /resume page's Print button
+  resumeFile: "/Rhealyn-Villar-Resume.pdf", // downloadable PDF resume (in /public)
+  resumeFileDocx: "/Rhealyn-Villar-Resume.docx", // editable Word (DOCX) version (in /public)
   photo: "/mypicture.jpg",
 };
 

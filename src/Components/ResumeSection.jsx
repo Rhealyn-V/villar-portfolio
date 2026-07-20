@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Download, FileText, Eye } from "lucide-react";
+import { Download, FileText, Eye, FileType2 } from "lucide-react";
 import { profile } from "../data/portfolio";
 
 const ResumeSection = () => {
@@ -36,9 +36,16 @@ const ResumeSection = () => {
             <a
               href={profile.resumeFile}
               download
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/15"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/95 px-6 py-3 text-sm font-semibold text-brand-primary transition-all hover:scale-105"
             >
               <Download size={16} /> Download PDF
+            </a>
+            <a
+              href={profile.resumeFileDocx}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/15"
+            >
+              <FileType2 size={16} /> Download Word
             </a>
           </div>
         </div>

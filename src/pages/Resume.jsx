@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Printer, ArrowLeft, Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { Printer, ArrowLeft, Mail, Phone, MapPin, Github, Linkedin, Download, FileType2 } from "lucide-react";
 import {
   profile,
   socials,
@@ -26,9 +26,12 @@ const Resume = () => {
         <Link to="/" className="btn-outline">
           <ArrowLeft size={16} /> Back to Portfolio
         </Link>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <a href={profile.resumeFile} download className="btn-outline">
-            Download PDF
+            <Download size={16} /> PDF
+          </a>
+          <a href={profile.resumeFileDocx} download className="btn-outline">
+            <FileType2 size={16} /> Word
           </a>
           <button onClick={() => window.print()} className="btn-primary">
             <Printer size={16} /> Print / Save as PDF
