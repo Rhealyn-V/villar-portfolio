@@ -7,8 +7,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: "#087581",
-          secondary: "#13CDCD",
+          primary: "#BE185D",
+          secondary: "#EC4899",
           accent: "#FFB544",
           light: "#F8FAFC",
           dark: "#0F172A",
@@ -19,13 +19,13 @@ export default {
         lexend: ["Lexend", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 0 24px rgba(19, 205, 205, 0.35)",
-        card: "0 10px 30px -12px rgba(8, 117, 129, 0.25)",
+        glow: "0 0 24px rgba(236, 72, 153, 0.35)",
+        card: "0 10px 30px -12px rgba(190, 24, 93, 0.25)",
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(135deg, #087581 0%, #13CDCD 100%)",
+        "brand-gradient": "linear-gradient(135deg, #BE185D 0%, #EC4899 100%)",
         "brand-radial":
-          "radial-gradient(1200px circle at 0% 0%, rgba(19,205,205,0.12), transparent 40%), radial-gradient(1200px circle at 100% 100%, rgba(255,181,68,0.10), transparent 40%)",
+          "radial-gradient(1200px circle at 0% 0%, rgba(236,72,153,0.12), transparent 40%), radial-gradient(1200px circle at 100% 100%, rgba(255,181,68,0.10), transparent 40%)",
       },
       keyframes: {
         floaty: {

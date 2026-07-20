@@ -14,7 +14,7 @@ Built with **React + Vite + Tailwind CSS + Framer Motion + Lucide Icons**.
 - **Dark / Light mode** with persistence.
 - **Animated** hero typing effect, count-up statistics, scroll-reveal, glassmorphism, rounded cards.
 - **SEO-ready** meta tags, Open Graph, and keywords (`index.html`).
-- **Brand system:** Lexend font; palette `#087581`, `#13CDCD`, `#FFB544`, `#F8FAFC`, `#0F172A`.
+- **Brand system:** Lexend font; palette `#BE185D`, `#EC4899`, `#FFB544`, `#F8FAFC`, `#0F172A`.
 - **All content in one file** — `src/data/portfolio.js`.
 
 ## 🚀 Getting started
