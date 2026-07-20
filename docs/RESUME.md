@@ -23,8 +23,8 @@ Portfolio: [YOUR DEPLOYED PORTFOLIO URL]
 
 **RHEALYN VILLAR**
 Admin Assistant | IT Support | Junior Web Developer | Bookkeeping Assistant
-Naic, Cavite, Philippines · villar.rhealyn.01@gmail.com · [YOUR PHONE NUMBER]
-GitHub: github.com/rhealyn-v · LinkedIn: linkedin.com/in/[YOUR-USERNAME] · Portfolio: [URL]
+Naic, Cavite, Philippines · villar.rhealyn.01@gmail.com · +63 916 625 9559
+GitHub: github.com/rhealyn-v · LinkedIn: linkedin.com/in/[YOUR-USERNAME] · Portfolio: https://villar-portfolio.vercel.app/
 
 ## PROFESSIONAL SUMMARY
 Aspiring Web Developer and Bookkeeping Professional with hands-on experience in
@@ -50,7 +50,7 @@ Administrative Assistant — [COMPANY NAME], [LOCATION]                     [STA
 - Organized physical and digital filing systems for fast, reliable retrieval.
 - Produced accurate reports and summaries using Microsoft Office (Word, Excel, PowerPoint).
 
-IT Support — [COMPANY NAME], [LOCATION]                                   [START – END]
+IT Support — Tagaytay Highlands International Golf Club, Inc, [LOCATION]                                   May – August 2023
 - Diagnosed and resolved computer, software, and peripheral issues to minimize downtime.
 - Set up, configured, and maintained printers, workstations, and office hardware.
 - Troubleshot network connectivity problems and supported day-to-day user needs.
