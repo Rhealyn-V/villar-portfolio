@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* offset for fixed navbar */
+  }
+
+  body {
+    @apply font-lexend bg-brand-light text-slate-800 antialiased dark:bg-brand-dark dark:text-slate-100;
+  }
+
+  ::selection {
+    @apply bg-brand-secondary/30 text-brand-primary dark:text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/40 bg-white/60 backdrop-blur-xl shadow-card
+      dark:border-white/10 dark:bg-white/5;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-md
+      shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-glow
+      dark:border-white/10 dark:bg-slate-900/60;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+      text-sm font-semibold transition-all duration-300 focus:outline-none
+      focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2
+      focus-visible:ring-offset-transparent;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-gradient text-white shadow-glow hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply btn border border-brand-primary/40 text-brand-primary hover:bg-brand-primary
+      hover:text-white dark:border-brand-secondary/50 dark:text-brand-secondary
+      dark:hover:bg-brand-secondary dark:hover:text-slate-900;
+  }
+
+  .btn-accent {
+    @apply btn bg-brand-accent text-slate-900 hover:scale-105 hover:brightness-105;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-brand-primary/20
+      bg-brand-primary/5 px-3 py-1 text-xs font-medium text-brand-primary
+      dark:border-brand-secondary/25 dark:bg-brand-secondary/10 dark:text-brand-secondary;
+  }
+
+  .section-pad {
+    @apply mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 md:py-28;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary
+      bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#087581, #13cdcd);
+  border-radius: 9999px;
+}
+
+/* Print styles for the resume page */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .print-container {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
