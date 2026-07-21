@@ -286,7 +286,7 @@ export const projects = [
     ],
     category: "Full-Stack System",
     accent: "primary",
-    liveUrl: "https://drive.google.com/file/d/1aGKS4Wk70ExguzxeB5HpL9OgPZdUpl4h/view?usp=drive_link", // [ADD LIVE DEMO LINK]
+    liveUrl: "", // [ADD LIVE DEMO LINK]
     repoUrl: "", // [ADD GITHUB REPO LINK]
     image: "", // optional: path to a screenshot in /public
   },
@@ -309,7 +309,7 @@ export const projects = [
     ],
     category: "Full-Stack System",
     accent: "primary",
-    liveUrl: "", // [ADD LIVE DEMO LINK]
+    liveUrl: "https://drive.google.com/file/d/1aGKS4Wk70ExguzxeB5HpL9OgPZdUpl4h/view?usp=drive_link", // [ADD LIVE DEMO LINK]
     repoUrl: "", // [ADD GITHUB REPO LINK]
     image: "", // optional: path to a screenshot in /public
   },
@@ -398,16 +398,16 @@ export const education = [
 // ---------------------------------------------------------------------------
 export const certifications = [
   {
-    title: "[CERTIFICATION TITLE]",
-    issuer: "[ISSUING ORGANIZATION]",
-    date: "[MONTH YEAR]",
+    title: "BEST IN COMOPUTER",
+    issuer: "CAVITE COMMUNITY ACADEMY INC.",
+    date: "2016",
     credentialUrl: "", // optional link to certificate
   },
   {
-    title: "[CERTIFICATION TITLE]",
-    issuer: "[ISSUING ORGANIZATION]",
-    date: "[MONTH YEAR]",
-    credentialUrl: "",
+    title: "NC II PASSER: COMPUTER SERVICING SYSTEM",
+    issuer: "TESDA - TECHNICAL EDUCATION AND SKILLS DEVELOPMENT AUTHORITY",
+    date: "2018",
+    credentialUrl: "https://drive.google.com/file/d/1TqKaxmnD3lC-xyy-AuKSW4r3h66caVOV/view?usp=sharing",
   },
 ];
 
