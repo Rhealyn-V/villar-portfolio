@@ -23,7 +23,7 @@ export const profile = {
     "Versatile IT and business-operations professional who bridges the gap between administration and technology. I combine hands-on experience in bookkeeping, billing, and office coordination with practical web-development skills in React, PHP, and MySQL. I build systems that turn manual, paper-based processes into efficient digital workflows — from vehicle booking and inventory to payroll and point-of-sale.",
   // Contact details — fill in the real values.
   email: "villar.rhealyn.01@gmail.com",
-  phone: "[YOUR PHONE NUMBER]",
+  phone: "+63 916 625 9559",
   resumeFile: "/Rhealyn-Villar-Resume.pdf", // downloadable PDF resume (in /public)
   resumeFileDocx: "/Rhealyn-Villar-Resume.docx", // editable Word (DOCX) version (in /public)
   photo: "/mypicture.jpg",
@@ -34,7 +34,7 @@ export const socials = {
   linkedin: "https://www.linkedin.com/in/[YOUR-LINKEDIN-USERNAME]",
   facebook: "https://www.facebook.com/[YOUR-FACEBOOK-USERNAME]",
   email: "villar.rhealyn.01@gmail.com",
-  phone: "[YOUR PHONE NUMBER]",
+  phone: "+63 916 625 9559",
 };
 
 // Animated statistics on the hero / about section
@@ -51,9 +51,9 @@ export const stats = [
 export const experience = [
   {
     role: "Administrative Assistant",
-    company: "[COMPANY NAME]",
+    company: "Amaya School of Home Industries",
     period: "[START – END]",
-    location: "[LOCATION]",
+    location: "Sahud-Ulan Tanza, Cavite",
     summary:
       "Provided end-to-end administrative support, keeping records, documents, and reports organized and accessible.",
     points: [
@@ -65,7 +65,7 @@ export const experience = [
   },
   {
     role: "IT Support",
-    company: "[COMPANY NAME]",
+    company: "Tagaytay Highlands",
     period: "[START – END]",
     location: "[LOCATION]",
     summary:
