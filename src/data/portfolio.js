@@ -49,39 +49,25 @@ export const stats = [
 // EXPERIENCE (timeline)
 // ---------------------------------------------------------------------------
 export const experience = [
-  {
-    role: "Administrative Assistant",
-    company: "Amaya School of Home Industries",
-    period: "[START – END]",
-    location: "Sahud-Ulan Tanza, Cavite",
+   {
+    role: "Treasurer Assistant",
+    company: "GRJ Jaro Group of Companies",
+    period: "JANUARY - MARCH 2026",
+    location: "Salitran 1, Gen. Aguinaldo Highway Dasmarinas, Cavite",
     summary:
-      "Provided end-to-end administrative support, keeping records, documents, and reports organized and accessible.",
+      "Supported treasury operations with cash handling, collections, and basic bookkeeping.",
     points: [
-      "Delivered day-to-day administrative and clerical support to keep operations running smoothly.",
-      "Prepared, formatted, and maintained business documents, reports, and correspondence.",
-      "Organized physical and digital filing systems for fast, reliable retrieval.",
-      "Produced accurate reports and summaries using Microsoft Office (Word, Excel, PowerPoint).",
+      "Handled cash transactions accurately and securely.",
+      "Maintained financial records and supporting documentation.",
+      "Managed collections and posted receipts in a timely manner.",
+      "Performed basic bookkeeping tasks and assisted with financial reconciliations.",
     ],
   },
   {
-    role: "IT Support",
-    company: "Tagaytay Highlands",
-    period: "[START – END]",
-    location: "[LOCATION]",
-    summary:
-      "First point of contact for hardware, network, and user-support issues across the office.",
-    points: [
-      "Diagnosed and resolved computer, software, and peripheral issues to minimize downtime.",
-      "Set up, configured, and maintained printers, workstations, and office hardware.",
-      "Troubleshot network connectivity problems and supported day-to-day user needs.",
-      "Monitored CCTV systems and performed routine hardware maintenance and preventive checks.",
-    ],
-  },
-  {
-    role: "Secretary",
-    company: "[COMPANY NAME]",
-    period: "[START – END]",
-    location: "[LOCATION]",
+    role: "CCTV Watcher",
+    company: "GRJ Jaro Group of Companies",
+    period: "JUNE - DECEMBER 2025",
+    location: "Salitran 1, Gen. Aguinaldo Highway Dasmarinas, Cavite",
     summary:
       "Managed schedules, documentation, and office coordination for smooth daily operations.",
     points: [
@@ -92,31 +78,45 @@ export const experience = [
     ],
   },
   {
-    role: "Billing Officer",
-    company: "[COMPANY NAME]",
-    period: "[START – END]",
-    location: "[LOCATION]",
+    role: "IT Support",
+    company: "Tagaytay Highlands",
+    period: "MAY - AUGUST 2023",
+    location: "4120 Brgy. Calabuso, Tagaytay City, Cavite",
     summary:
-      "Owned billing preparation and payment monitoring while safeguarding customer records.",
+      "First point of contact for hardware, network, and user-support issues across the office.",
     points: [
-      "Prepared and issued accurate billing statements and invoices.",
-      "Maintained up-to-date customer records and account information.",
-      "Monitored payments, followed up on balances, and reconciled discrepancies.",
-      "Generated billing and collection reports for management review.",
+      "Diagnosed and resolved computer, software, and peripheral issues to minimize downtime.",
+      "Set up, configured, and maintained printers, workstations, and office hardware.",
+      "Troubleshot network connectivity problems and supported day-to-day user needs.",
+      "Monitored CCTV systems and performed routine hardware maintenance and preventive checks.",
     ],
   },
   {
-    role: "Treasurer Assistant",
-    company: "[COMPANY NAME]",
-    period: "[START – END]",
-    location: "[LOCATION]",
+    role: "Seasonal Employee",
+    company: "Lazada",
+    period: "OCTOBER - DECEMBER 2021",
+    location: "Naic, Cavite",
     summary:
-      "Supported treasury operations with cash handling, collections, and basic bookkeeping.",
+      "Provided end-to-end administrative support, keeping records, documents, and reports organized and accessible.",
     points: [
-      "Handled cash transactions accurately and securely.",
-      "Maintained financial records and supporting documentation.",
-      "Managed collections and posted receipts in a timely manner.",
-      "Performed basic bookkeeping tasks and assisted with financial reconciliations.",
+      "Managed parcel and order separation for efficient delivery operations.",
+      "Utilized laptops and Excel to process transactions, track order statuses, and monitor deliveries",
+      "Coordinated with delivery riders to ensure timely and accurate dispatch of orders.",
+      "Maintained accurate records and data on order processing and rider delivery and performance",
+    ],
+  },
+  {
+    role: "Administrative Assistant",
+    company: "Amaya School of Home Industries",
+    period: "2019",
+    location: "Sahud-Ulan Tanza, Cavite",
+    summary:
+      "Provided end-to-end administrative support, keeping records, documents, and reports organized and accessible.",
+    points: [
+      "Delivered day-to-day administrative and clerical support to keep operations running smoothly.",
+      "Prepared, formatted, and maintained business documents, reports, and correspondence.",
+      "Organized physical and digital filing systems for fast, reliable retrieval.",
+      "Produced accurate reports and summaries using Microsoft Office (Word, Excel, PowerPoint).",
     ],
   },
 ];
@@ -282,6 +282,29 @@ export const projects = [
       "Calendar",
       "CRM",
       "Driver Management",
+      "Role-based Access",
+    ],
+    category: "Full-Stack System",
+    accent: "primary",
+    liveUrl: "https://drive.google.com/file/d/1aGKS4Wk70ExguzxeB5HpL9OgPZdUpl4h/view?usp=drive_link", // [ADD LIVE DEMO LINK]
+    repoUrl: "", // [ADD GITHUB REPO LINK]
+    image: "", // optional: path to a screenshot in /public
+  },
+   {
+    title: "CDSC Industrial Supply",
+    tagline: "All-in-one fleet, booking & accounting platform for a transport business.",
+    description:
+      "A comprehensive transport-management platform that digitizes the entire operation — from vehicle booking and trip management to payroll, fleet maintenance, and accounting — with role-based access for every team member.",
+    stack: ["React", "PHP", "MySQL"],
+    features: [
+      "Inventory",
+      "Trip Management",
+      "Maintenance",
+      "Reports",
+      "Dashboard",
+      "Accounting",
+      "Calendar",
+      "CRM",
       "Role-based Access",
     ],
     category: "Full-Stack System",
