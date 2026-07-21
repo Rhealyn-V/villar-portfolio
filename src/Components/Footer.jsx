@@ -85,8 +85,7 @@ const Footer = () => {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-200/70 pt-6 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400 sm:flex-row">
           <p className="flex items-center gap-1.5">
-            © {new Date().getFullYear()} Rhealyn Villar. Built with{" "}
-            <Heart size={13} className="text-brand-accent" /> using React & Tailwind CSS.
+            © {new Date().getFullYear()} Rhealyn Villar.
           </p>
           <HashLink
             smooth
