@@ -311,7 +311,7 @@ export const projects = [
     accent: "primary",
     liveUrl: "https://drive.google.com/file/d/1aGKS4Wk70ExguzxeB5HpL9OgPZdUpl4h/view?usp=drive_link", // [ADD LIVE DEMO LINK]
     repoUrl: "", // [ADD GITHUB REPO LINK]
-    image: "", // optional: path to a screenshot in /public
+    image: "https://drive.google.com/file/d/1pXlZy0892hqQjzFK3cpEkVoHmRHrdmBp/view?usp=sharing", // optional: path to a screenshot in /public
   },
   {
     title: "Bluescale Inventory Management System",
