@@ -16,11 +16,13 @@ import SectionHeading from "./ui/SectionHeading";
 import { profile, socials } from "../data/portfolio";
 
 const Contacts = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const data = new FormData(e.target);
     const name = data.get("name");
     const email = data.get("email");
@@ -32,20 +34,33 @@ const Contacts = () => {
     const subject = encodeURIComponent(`[Portfolio Inquiry] ${customSubject} - ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
 
-    // Direct Gmail Web Compose link
+    // Direct Gmail Web Compose link for new tab
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}&su=${subject}&body=${body}`;
-    // Standard mailto link
-    const mailtoUrl = `mailto:${profile.email}?subject=${subject}&body=${body}`;
 
-    // Open Gmail web compose in a new tab
+    // Open Gmail web compose in a new tab immediately upon click
     window.open(gmailUrl, "_blank");
 
-    // Also trigger mailto as fallback for default mail apps
-    setTimeout(() => {
-      window.location.href = mailtoUrl;
-    }, 500);
-
-    setSent(true);
+    // Automatically send message to account inbox via FormSubmit API
+    try {
+      await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          _subject: `[Portfolio Inquiry] ${customSubject} from ${name}`,
+          message,
+        }),
+      });
+    } catch (err) {
+      console.warn("FormSubmit background notification fallback triggered:", err);
+    } finally {
+      setIsSubmitting(false);
+      setSent(true);
+    }
   };
 
   const contactItems = [
@@ -142,16 +157,16 @@ const Contacts = () => {
               className="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-sm outline-none transition focus:border-brand-secondary focus:ring-2 focus:ring-brand-secondary/30 dark:border-white/10 dark:bg-slate-900/60"
             />
           </div>
-          <button type="submit" className="btn-primary w-full">
-            <Send size={16} /> Send Message
+          <button type="submit" disabled={isSubmitting} className="btn-primary w-full disabled:opacity-50">
+            <Send size={16} /> {isSubmitting ? "Sending Message..." : "Send Message"}
           </button>
           {sent && (
             <div className="space-y-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-xs text-slate-700 dark:text-slate-200">
               <p className="flex items-center gap-2 font-bold text-emerald-600 dark:text-emerald-300">
-                <CheckCircle2 size={16} /> Message prepared for Gmail!
+                <CheckCircle2 size={16} /> Message sent & opened in new tab!
               </p>
               <p>
-                Your message has been formatted to send directly to <strong>{profile.email}</strong>.
+                Your message was automatically dispatched to <strong>{profile.email}</strong> and opened in Gmail in a new tab.
               </p>
               {submittedData && (
                 <div className="pt-2">
@@ -161,7 +176,7 @@ const Contacts = () => {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 font-bold text-brand-primary underline dark:text-brand-secondary"
                   >
-                    Click here if Gmail did not open automatically <ExternalLink size={12} />
+                    Click here to open Gmail compose tab again <ExternalLink size={12} />
                   </a>
                 </div>
               )}

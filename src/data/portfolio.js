@@ -18,9 +18,9 @@ export const profile = {
   location: "Naic, Cavite, Philippines",
   availability: "Open to work — Full-time / Remote / Freelance",
   objective:
-    "I am an aspiring Web Developer and IT Support Professional with experience in administrative support, system development, and business operations. I enjoy solving problems, creating web applications, automating business processes, and organizing badminton tournaments (GAWJUS, EBT, Father & Son). My goal is to help businesses improve efficiency through technology while expanding my expertise in software development.",
+    "I am an aspiring Web Developer and IT Support Professional with experience in administrative support, system development, and business operations. I enjoy solving problems, creating web applications, automating business processes, and organizing badminton tournaments (GAWJUS, EBT, Play with Dad). My goal is to help businesses improve efficiency through technology while expanding my expertise in software development.",
   summary:
-    "Versatile IT and business-operations professional who bridges the gap between administration and technology. I combine hands-on experience in office coordination and badminton tournament organizing (GAWJUS, EBT, Father & Son) with practical web-development skills in React, PHP, and MySQL. I build systems that turn manual, paper-based processes into efficient digital workflows — from vehicle booking and inventory to payroll and point-of-sale.",
+    "Versatile IT and business-operations professional who bridges the gap between administration and technology. I combine hands-on experience in office coordination and badminton tournament organizing (GAWJUS, EBT, Play with Dad) with practical web-development skills in React, PHP, and MySQL. I build systems that turn manual, paper-based processes into efficient digital workflows — from vehicle booking and inventory to payroll and point-of-sale.",
   // Contact details — fill in the real values.
   email: "villar.rhealyn.01@gmail.com",
   phone: "+63 916 625 9559",
@@ -90,7 +90,7 @@ export const experience = [
       "Diagnosed and resolved computer, software, and peripheral issues to minimize downtime.",
       "Set up, configured, and maintained printers, workstations, and office hardware.",
       "Troubleshot network connectivity problems and supported day-to-day user needs.",
-      "Monitored CCTV systems and performed routine hardware maintenance and preventive checks.",
+      "Monitored and managed reports of CCTV repair needs, while performing routine hardware maintenance and preventive checks.",
     ],
   },
   {
@@ -140,12 +140,12 @@ export const services = [
   {
     icon: "Trophy",
     title: "Tournament & Event Management",
-    desc: "Organizing badminton tournaments (GAWJUS, EBT, Father & Son) — handling scheduling, player registrations, bracket management, and ground coordination.",
+    desc: "Organizing badminton tournaments (GAWJUS, EBT, Play with Dad) — handling scheduling, player registrations, bracket management, and ground coordination.",
   },
   {
     icon: "Wrench",
     title: "IT Support",
-    desc: "Hardware and software troubleshooting, printer and network setup, CCTV monitoring, and reliable end-user support.",
+    desc: "Hardware and software troubleshooting, printer and network setup, CCTV repair reporting, and reliable end-user support.",
   },
   {
     icon: "Workflow",
@@ -204,7 +204,6 @@ export const skillGroups = [
     category: "Administration & Operations",
     skills: [
       { name: "Tournament Organizing", level: 90 },
-      { name: "Payroll Support", level: 80 },
       { name: "HR & Documentation", level: 82 },
       { name: "Inventory & Data Entry", level: 88 },
     ],
@@ -239,7 +238,6 @@ export const skillTags = {
   ],
   Administration: [
     "Tournament Organizing",
-    "Payroll Support",
     "HR",
     "Inventory",
     "Documentation",
@@ -254,10 +252,8 @@ export const softSkills = [
   "Communication",
   "Fast Learner",
   "Adaptability",
-  "Attention to Detail",
   "Critical Thinking",
   "Time Management",
-  "Leadership",
   "Customer Service",
   "Event Organization",
 ];
@@ -270,9 +266,9 @@ export const badmintonAchievements = {
   tournamentsOrganizedList: [
     "GAWJUS Badminton Tournament",
     "EBT Tournament",
-    "Father and Son Badminton Tournament",
+    "Play with Dad Father's Day Badminton Camp & Mini Tournament",
   ],
-  tournamentsOrganizedText: "Organized Badminton Tournaments: GAWJUS, EBT Tournament, and Father & Son Badminton Tournament",
+  tournamentsOrganizedText: "Organized Badminton Tournaments: GAWJUS, EBT Tournament, and Play with Dad Father's Day Badminton Camp & Mini Tournament",
   medals: [
     {
       title: "Bronze Medalist in the Badminton Women’s Doubles",
@@ -336,9 +332,9 @@ export const organizedTournaments = [
     role: "Head Organizer & Ground Coordinator",
     description:
       "Organized competitive badminton matches across multiple skill levels (Level A, B, C, Open). Directed match flow, court allocation, and registration desk operations.",
-    poster: "https://images.unsplash.com/photo-1613918108466-292b78a8ef95?auto=format&fit=crop&w=800&q=80",
+    poster: "/ebt-poster.jpg",
     images: [
-      "https://images.unsplash.com/photo-1613918108466-292b78a8ef95?auto=format&fit=crop&w=800&q=80",
+      "/ebt-poster.jpg",
       "/badminton-logo.jpg",
       "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
     ],
@@ -352,17 +348,19 @@ export const organizedTournaments = [
     ],
   },
   {
-    id: "father-son",
-    title: "Father and Son Badminton Tournament",
+    id: "play-with-dad",
+    title: "Play with Dad Father's Day Badminton Camp & Mini Tournament",
     subtitle: "Special Family Doubles Cup",
     role: "Event Founder & Tournament Manager",
     description:
-      "Conceptualized and executed a memorable family doubles tournament promoting sportsmanship, family bonding, and healthy competition between fathers and their sons.",
-    poster: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80",
+      "Conceptualized and executed a memorable family doubles tournament promoting sportsmanship, family bonding, and healthy competition between fathers and their kids.",
+    poster: "/play-with-dad-poster.jpg",
     images: [
-      "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80",
-      "/badminton-logo.jpg",
-      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
+      "/play-with-dad-poster.jpg",
+      "/play-with-dad-2.jpg",
+      "/play-with-dad-1.jpg",
+      "/play-with-dad-3.jpg",
+      "/play-with-dad-4.jpg",
     ],
     category: "Family Event",
     status: "Completed",
@@ -412,7 +410,7 @@ export const projects = [
     title: "CDSC Industrial Supply",
     tagline: "Industrial inventory, ordering & client management portal.",
     description:
-      "An industrial supply management system built to digitize equipment tracking, maintenance schedules, sales orders, and client interactions with automated stock reporting.",
+      "An industrial supply management system built to digitize inventory tracking, sales orders, and client interactions with automated stock reporting.",
     stack: ["React", "PHP", "MySQL"],
     status: "Completed",
     logo: "/cdsc-logo.jpg",
@@ -420,15 +418,13 @@ export const projects = [
     image: "/cdsc-login.jpg",
     features: [
       "Inventory",
-      "Trip Management",
-      "Maintenance",
       "Reports",
       "Dashboard",
       "Calendar",
       "CRM",
       "Role-based Access",
     ],
-    category: "Full-Stack System",
+    category: "Inventory System",
     accent: "primary",
     liveUrl: "https://cdscindustrialsupply.netlify.app",
     repoUrl: "",
@@ -460,24 +456,22 @@ export const projects = [
     repoUrl: "",
   },
   {
-    title: "Payroll Management System",
-    tagline: "Automated payroll system using Google Sheets & Apps Script.",
+    title: "TRES Prime Drive",
+    tagline: "Automated business management & tracking using Google Sheets & Apps Script.",
     description:
-      "A completed payroll management system that automates attendance tracking, payslip generation, and statutory contributions (SSS, PhilHealth, Pag-IBIG) powered by Google Sheets and Google Apps Script automation.",
+      "A completed business automation system powered by Google Sheets and Google Apps Script designed to streamline operational workflows, data tracking, and automated reporting.",
     stack: ["Google Sheets", "Google Apps Script"],
     status: "Completed",
     logo: "FileSpreadsheet",
     loginImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
     image: "",
     features: [
-      "Attendance Tracking",
-      "Payslip Generation",
-      "SSS Contribution",
-      "PhilHealth",
-      "Pag-IBIG",
-      "Payroll Reports",
       "Google Sheets Integration",
-      "Apps Script Automation",
+      "Google Apps Script Automation",
+      "Data Management",
+      "Automated Workflows",
+      "Reporting Dashboards",
+      "Custom Formulas & Scripts",
     ],
     category: "Automation",
     accent: "primary",
@@ -559,10 +553,10 @@ export const certifications = [
 ];
 
 export const achievements = [
-  "Organized Badminton Tournaments: GAWJUS Badminton Tournament, EBT Tournament, and Father and Son Badminton Tournament.",
+  "Organized Badminton Tournaments: GAWJUS Badminton Tournament, EBT Tournament, and Play with Dad Father's Day Badminton Camp & Mini Tournament.",
   "CvSU Badminton Varsity Athlete: Multi-Medalist (Gold, Silver, Bronze) across 2019 & 2022 STRASUC Olympics.",
   "Designed and delivered multiple full-stack business systems (transport, inventory, POS, and payroll) from concept to deployment.",
-  "Automated manual payroll and reporting processes using Google Apps Script, reducing processing time and human error.",
+  "Automated manual processes and reporting (TRES Prime Drive) using Google Apps Script & Google Sheets, reducing processing time and human error.",
   "Bridged administrative and technical roles — improving operational efficiency through custom digital tools.",
 ];
 
