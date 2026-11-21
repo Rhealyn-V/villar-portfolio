@@ -1,29 +1,53 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        // One accent colour. `light` is the same hue tuned for dark backgrounds.
         brand: {
-          DEFAULT: "#BE185D", // pink-700 — 6.0:1 on white
-          hover: "#9D174D", // pink-800
-          light: "#F472B6", // pink-400 — 7:1 on slate-950, used in dark mode
-          soft: "#FDF2F8", // pink-50 — tinted surfaces
+          primary: "#BE185D",
+          secondary: "#EC4899",
+          accent: "#FFB544",
+          light: "#F8FAFC",
+          dark: "#0F172A",
         },
-        ink: "#0F172A", // slate-900
-        paper: "#F8FAFC", // slate-50
       },
       fontFamily: {
-        sans: ["Lexend", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
-      },
-      borderRadius: {
-        card: "1rem",
+        sans: ["Lexend", "system-ui", "sans-serif"],
+        lexend: ["Lexend", "sans-serif"],
       },
       boxShadow: {
-        card: "0 1px 2px rgb(15 23 42 / 0.05), 0 8px 24px -12px rgb(15 23 42 / 0.12)",
-        lift: "0 2px 4px rgb(15 23 42 / 0.06), 0 16px 32px -12px rgb(190 24 93 / 0.22)",
+        glow: "0 0 24px rgba(236, 72, 153, 0.35)",
+        card: "0 10px 30px -12px rgba(190, 24, 93, 0.25)",
+      },
+      backgroundImage: {
+        "brand-gradient": "linear-gradient(135deg, #BE185D 0%, #EC4899 100%)",
+        "brand-radial":
+          "radial-gradient(1200px circle at 0% 0%, rgba(236,72,153,0.12), transparent 40%), radial-gradient(1200px circle at 100% 100%, rgba(255,181,68,0.10), transparent 40%)",
+      },
+      keyframes: {
+        floaty: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-14px)" },
+        },
+        fadeInUp: {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        floaty: "floaty 4s ease-in-out infinite",
+        fadeInUp: "fadeInUp 0.6s ease-out forwards",
+        blink: "blink 1s step-end infinite",
       },
     },
   },

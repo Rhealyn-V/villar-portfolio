@@ -1,46 +1,35 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
-// Renders the final number by default. If it starts off-screen and motion is
-// allowed, it counts up once it scrolls into view. Screen readers always get
-// the final value.
-const Counter = ({ value, suffix = "", duration = 1200 }) => {
+// Animated number that counts up when scrolled into view.
+const Counter = ({ value, suffix = "", duration = 1600 }) => {
   const ref = useRef(null);
-  const final = `${value}${suffix}`;
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
-
+    if (!inView) return;
+    const startTime = performance.now();
     let raf;
-    el.textContent = `0${suffix}`;
-    const io = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      io.disconnect();
-      const start = performance.now();
-      const tick = (now) => {
-        const p = Math.min((now - start) / duration, 1);
-        el.textContent = `${Math.round((1 - Math.pow(1 - p, 3)) * value)}${suffix}`;
-        if (p < 1) raf = requestAnimationFrame(tick);
-      };
-      raf = requestAnimationFrame(tick);
-    });
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(raf);
-      el.textContent = final;
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(eased * value));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+      else setDisplay(value);
     };
-  }, [value, suffix, duration, final]);
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, value, duration]);
 
   return (
-    <>
-      <span ref={ref} aria-hidden="true">
-        {final}
-      </span>
-      <span className="sr-only">{final}</span>
-    </>
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
   );
 };
 

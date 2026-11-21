@@ -1,43 +1,95 @@
+import { motion } from "framer-motion";
+import { BadgeCheck, Percent } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
-import Reveal from "./ui/Reveal";
-import { skillTiers, softSkills } from "../data/portfolio";
+import { skillGroups, skillTags, softSkills } from "../data/portfolio";
 
-const Skills = () => (
-  <section id="skills" aria-labelledby="skills-title" className="section bg-white dark:bg-slate-900">
-    <div className="container-page">
-      <SectionHeading
-        id="skills-title"
-        eyebrow="Skills"
-        title="What I work with"
-        subtitle="Grouped by how often I actually use each one."
+const Bar = ({ name, level }) => (
+  <div>
+    <div className="mb-1 flex items-center justify-between text-sm">
+      <span className="font-medium text-slate-800 dark:text-slate-200">{name}</span>
+      <span className="inline-flex items-center rounded-full bg-brand-primary/10 px-2 py-0.5 text-xs font-bold text-brand-primary dark:bg-brand-secondary/15 dark:text-brand-secondary">
+        {level}%
+      </span>
+    </div>
+    <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-200/80 dark:bg-slate-800">
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="h-full rounded-full bg-brand-gradient shadow-sm"
       />
-      <div className="grid gap-5 md:grid-cols-3">
-        {skillTiers.map((t, i) => (
-          <Reveal key={t.tier} delay={i * 60} className="card p-6">
-            <h3 className="text-lg font-bold">{t.tier}</h3>
-            <p className="text-muted mt-1 text-sm">{t.note}</p>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {t.skills.map((s) => (
-                <li key={s.name} className={i === 0 ? "chip-accent" : "chip"}>
-                  {s.name}
-                </li>
+    </div>
+  </div>
+);
+
+const Skills = () => {
+  return (
+    <section id="skills" className="section-pad">
+      <SectionHeading
+        eyebrow="Skills & Ratings"
+        title="Technical & Professional Skills"
+        subtitle="Comprehensive skill breakdown rated in real proficiency percentages."
+      />
+
+      {/* Progress bars */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {skillGroups.map((group, i) => (
+          <motion.div
+            key={group.category}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            className="card p-6"
+          >
+            <h3 className="mb-4 text-base font-bold text-brand-primary dark:text-brand-secondary border-b border-slate-100 pb-2 dark:border-white/10">
+              {group.category}
+            </h3>
+            <div className="space-y-4">
+              {group.skills.map((s) => (
+                <Bar key={s.name} {...s} />
               ))}
-            </ul>
-          </Reveal>
+            </div>
+          </motion.div>
         ))}
       </div>
-      <Reveal className="mt-8">
-        <h3 className="text-muted text-sm font-semibold uppercase tracking-wide">Working style</h3>
-        <ul className="mt-3 flex flex-wrap gap-2">
+
+      {/* Tag cloud */}
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {Object.entries(skillTags).map(([group, tags]) => (
+          <div key={group} className="card p-6">
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              {group}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((t) => (
+                <span key={t} className="chip">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Soft skills */}
+      <div className="mt-12">
+        <h3 className="mb-4 text-center text-lg font-bold">Soft Skills & Personal Competencies</h3>
+        <div className="flex flex-wrap justify-center gap-3">
           {softSkills.map((s) => (
-            <li key={s} className="chip">
+            <span
+              key={s}
+              className="inline-flex items-center gap-2 rounded-full border border-brand-accent/40 bg-brand-accent/10 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200"
+            >
+              <BadgeCheck size={15} className="text-brand-accent" />
               {s}
-            </li>
+            </span>
           ))}
-        </ul>
-      </Reveal>
-    </div>
-  </section>
-);
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Skills;

@@ -1,26 +1,21 @@
-import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
-import ScrollToTop from "./Components/ScrollToTop";
-import Hero from "./Components/Hero";
+import Home from "./Components/Home";
 import About from "./Components/About";
-import FeaturedWork from "./Components/FeaturedWork";
-import Services from "./Components/Services";
 import Experience from "./Components/Experience";
 import Skills from "./Components/Skills";
-import Leadership from "./Components/Leadership";
-import Certifications from "./Components/Certifications";
+import Service from "./Components/Service";
+import Projects from "./Components/Projects";
+import Certificates from "./Components/Certificates";
 import ResumeSection from "./Components/ResumeSection";
-import Contact from "./Components/Contact";
-import usePageMeta from "./hooks/usePageMeta";
+import Contacts from "./Components/Contacts";
+import Footer from "./Components/Footer";
+import ScrollToTop from "./Components/ScrollToTop";
+import Resume from "./pages/Resume";
 
-const CaseStudy = lazy(() => import("./pages/CaseStudy"));
-const Resume = lazy(() => import("./pages/Resume"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-
-// Reset scroll on route changes (hash links handle their own scrolling).
+// Reset scroll position when navigating between routes (e.g. /resume)
 function ScrollReset() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -30,54 +25,41 @@ function ScrollReset() {
 }
 
 function Landing() {
-  usePageMeta({ path: "/" });
   return (
     <>
-      <Hero />
+      <Home />
       <About />
-      <FeaturedWork />
-      <Services />
       <Experience />
       <Skills />
-      <Leadership />
-      <Certifications />
+      <Service />
+      <Projects />
+      <Certificates />
       <ResumeSection />
-      <Contact />
+      <Contacts />
+      <Footer />
+      <ScrollToTop />
     </>
   );
 }
-
-const SiteLayout = ({ children }) => (
-  <>
-    <a href="#main" className="skip-link">
-      Skip to content
-    </a>
-    <Navbar />
-    <main id="main" tabIndex={-1} className="outline-none">
-      <Suspense fallback={<div className="min-h-screen" />}>{children}</Suspense>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </>
-);
 
 function App() {
   return (
     <Router>
       <ScrollReset />
-      <Routes>
-        <Route path="/" element={<SiteLayout><Landing /></SiteLayout>} />
-        <Route path="/projects/:slug" element={<SiteLayout><CaseStudy /></SiteLayout>} />
-        <Route
-          path="/resume"
-          element={
-            <Suspense fallback={<div className="min-h-screen" />}>
-              <Resume />
-            </Suspense>
-          }
-        />
-        <Route path="*" element={<SiteLayout><NotFound /></SiteLayout>} />
-      </Routes>
+      <div className="min-h-screen bg-brand-light text-slate-800 transition-colors duration-300 dark:bg-brand-dark dark:text-slate-100">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <Landing />
+              </>
+            }
+          />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

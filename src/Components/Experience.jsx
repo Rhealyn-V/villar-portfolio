@@ -1,48 +1,77 @@
+import { motion } from "framer-motion";
+import { Briefcase, MapPin, CalendarDays } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
-import Reveal from "./ui/Reveal";
 import { experience } from "../data/portfolio";
 
-const Experience = () => (
-  <section id="experience" aria-labelledby="experience-title" className="section">
-    <div className="container-page">
+const Experience = () => {
+  return (
+    <section id="experience" className="section-pad">
       <SectionHeading
-        id="experience-title"
         eyebrow="Experience"
-        title="Where the systems thinking comes from"
-        subtitle="Roles in operations, IT support, and administration — the day-to-day problems my software is built to solve."
+        title="My Professional Journey"
+        subtitle="Roles across administration, IT support, billing, and finance — the foundation behind my systems-thinking approach to development."
       />
-      <ol className="relative ml-2 max-w-3xl border-l-2 border-slate-200 dark:border-slate-800">
-        {experience.map((job) => (
-          <Reveal as="li" key={`${job.role}-${job.period}`} className="relative mb-8 pl-8 last:mb-0">
-            <span
-              aria-hidden="true"
-              className="absolute -left-[9px] top-6 h-4 w-4 rounded-full border-4 border-paper bg-brand dark:border-slate-950 dark:bg-brand-light"
-            />
-            <article className="card p-6">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="text-lg font-bold">{job.role}</h3>
-                <p className="text-accent text-sm font-semibold">{job.period}</p>
+
+      <div className="relative mx-auto max-w-3xl">
+        {/* vertical line */}
+        <span className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-brand-primary via-brand-secondary to-transparent sm:left-1/2" />
+
+        <div className="space-y-10">
+          {experience.map((job, i) => (
+            <motion.div
+              key={job.role + i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className={`relative pl-12 sm:w-1/2 sm:pl-0 ${
+                i % 2 === 0 ? "sm:pr-10 sm:text-right" : "sm:ml-auto sm:pl-10"
+              }`}
+            >
+              {/* dot */}
+              <span
+                className={`absolute left-2.5 top-2 grid h-4 w-4 place-items-center rounded-full bg-brand-gradient ring-4 ring-white dark:ring-brand-dark sm:left-auto ${
+                  i % 2 === 0 ? "sm:-right-2" : "sm:-left-2"
+                }`}
+              />
+
+              <div className="card p-6">
+                <span className="chip mb-2">
+                  <CalendarDays size={13} /> {job.period}
+                </span>
+                <h3 className="text-lg font-bold text-brand-primary dark:text-brand-secondary">
+                  {job.role}
+                </h3>
+                <p className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-slate-600 dark:text-slate-300 sm:justify-end">
+                  <span className="inline-flex items-center gap-1">
+                    <Briefcase size={14} /> {job.company}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <MapPin size={14} /> {job.location}
+                  </span>
+                </p>
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                  {job.summary}
+                </p>
+                <ul
+                  className={`mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300 ${
+                    i % 2 === 0 ? "sm:list-none" : ""
+                  }`}
+                >
+                  {job.points.map((p) => (
+                    <li key={p} className="flex gap-2 text-left sm:justify-start">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-muted mt-1 text-sm">
-                {job.company} · {job.location}
-              </p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                {job.points.map((p, i) => (
-                  <li key={p} className="flex gap-3">
-                    <span
-                      aria-hidden="true"
-                      className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${i === 0 ? "bg-brand dark:bg-brand-light" : "bg-slate-400 dark:bg-slate-600"}`}
-                    />
-                    <span className={i === 0 ? "font-medium text-slate-900 dark:text-slate-100" : ""}>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </Reveal>
-        ))}
-      </ol>
-    </div>
-  </section>
-);
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Experience;

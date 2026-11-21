@@ -1,17 +1,16 @@
 import { Moon, Sun } from "lucide-react";
 import { useDarkMode } from "../Context/ThemeContext";
 
-const DarkModeToggle = () => {
+const DarkModeToggle = ({ className = "" }) => {
   const { darkMode, setDarkMode } = useDarkMode();
+
   return (
     <button
-      type="button"
       onClick={() => setDarkMode(!darkMode)}
       aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-      aria-pressed={darkMode}
-      className="icon-btn"
+      className={`grid h-10 w-10 place-items-center rounded-full border border-slate-200/70 bg-white/70 text-brand-primary transition-all duration-300 hover:scale-110 hover:shadow-glow dark:border-white/10 dark:bg-white/5 dark:text-brand-secondary ${className}`}
     >
-      {darkMode ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+      {darkMode ? <Sun size={18} /> : <Moon size={18} />}
     </button>
   );
 };

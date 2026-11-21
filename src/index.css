@@ -1,15 +1,3 @@
-/* Lexend (SIL Open Font License) — self-hosted, latin subset, variable weight */
-@font-face {
-  font-family: "Lexend";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("/fonts/lexend-latin-wght.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,175 +5,84 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem; /* offset for the fixed navbar */
-    -webkit-text-size-adjust: 100%;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+    scroll-padding-top: 5rem; /* offset for fixed navbar */
   }
 
   body {
-    @apply bg-paper font-sans text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply text-slate-900 dark:text-white;
-  }
-
-  :focus-visible {
-    outline: 2px solid #be185d;
-    outline-offset: 3px;
-    border-radius: 6px;
-  }
-  .dark :focus-visible {
-    outline-color: #f472b6;
+    @apply font-lexend bg-brand-light text-slate-800 antialiased dark:bg-brand-dark dark:text-slate-100;
   }
 
   ::selection {
-    @apply bg-brand/20 text-slate-900 dark:bg-brand-light/30 dark:text-white;
+    @apply bg-brand-secondary/30 text-brand-primary dark:text-white;
   }
 }
 
 @layer components {
-  /* Layout ---------------------------------------------------------------- */
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
-  }
-  .section {
-    @apply py-16 md:py-24;
+  .glass {
+    @apply border border-white/40 bg-white/60 backdrop-blur-xl shadow-card
+      dark:border-white/10 dark:bg-white/5;
   }
 
-  /* Surfaces -------------------------------------------------------------- */
   .card {
-    @apply rounded-card border border-slate-200 bg-white shadow-card
-      dark:border-slate-800 dark:bg-slate-900;
-  }
-  .card-hover {
-    @apply transition duration-200 hover:-translate-y-0.5 hover:shadow-lift motion-reduce:transform-none;
+    @apply rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-md
+      shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-glow
+      dark:border-white/10 dark:bg-slate-900/60;
   }
 
-  /* Type ------------------------------------------------------------------ */
-  .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand dark:text-brand-light;
-  }
-  .text-muted {
-    @apply text-slate-600 dark:text-slate-400;
-  }
-  .text-accent {
-    @apply text-brand dark:text-brand-light;
-  }
-  .link {
-    @apply font-medium text-brand underline-offset-4 hover:underline dark:text-brand-light;
-  }
-
-  /* Buttons --------------------------------------------------------------- */
   .btn {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-2.5
-      text-sm font-semibold transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+      text-sm font-semibold transition-all duration-300 focus:outline-none
+      focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2
+      focus-visible:ring-offset-transparent;
   }
-  .btn-sm {
-    @apply min-h-[40px] px-4 py-2 text-xs;
-  }
+
   .btn-primary {
-    @apply btn bg-brand text-white hover:bg-brand-hover
-      dark:bg-brand-light dark:text-slate-950 dark:hover:bg-pink-300;
-  }
-  .btn-secondary {
-    @apply btn border border-slate-300 bg-white text-slate-800 hover:border-brand hover:text-brand
-      dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100
-      dark:hover:border-brand-light dark:hover:text-brand-light;
-  }
-  .btn-disabled {
-    @apply btn cursor-not-allowed border border-dashed border-slate-300 bg-slate-100 text-slate-600
-      dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400;
-  }
-  .icon-btn {
-    @apply grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700
-      transition-colors hover:border-brand hover:text-brand
-      dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200
-      dark:hover:border-brand-light dark:hover:text-brand-light;
+    @apply btn bg-brand-gradient text-white shadow-glow hover:scale-105 hover:shadow-lg;
   }
 
-  /* Chips ----------------------------------------------------------------- */
+  .btn-outline {
+    @apply btn border border-brand-primary/40 text-brand-primary hover:bg-brand-primary
+      hover:text-white dark:border-brand-secondary/50 dark:text-brand-secondary
+      dark:hover:bg-brand-secondary dark:hover:text-slate-900;
+  }
+
+  .btn-accent {
+    @apply btn bg-brand-accent text-slate-900 hover:scale-105 hover:brightness-105;
+  }
+
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1
-      text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200;
-  }
-  .chip-accent {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand-soft px-3 py-1
-      text-xs font-medium text-brand dark:border-brand-light/30 dark:bg-brand-light/10 dark:text-brand-light;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-brand-primary/20
+      bg-brand-primary/5 px-3 py-1 text-xs font-medium text-brand-primary
+      dark:border-brand-secondary/25 dark:bg-brand-secondary/10 dark:text-brand-secondary;
   }
 
-  /* Form ------------------------------------------------------------------ */
-  .input {
-    @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900
-      placeholder:text-slate-500 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25
-      dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500
-      dark:focus:border-brand-light dark:focus:ring-brand-light/25;
+  .section-pad {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 py-16 md:py-24;
   }
 
-  .skip-link {
-    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-brand px-5 py-3 text-sm font-semibold
-      text-white shadow-lift transition-transform focus:translate-y-0;
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary
+      bg-clip-text text-transparent;
   }
 }
 
-/* Scroll reveal: content is visible by default. <Reveal> only hides an element
-   when JS is running, it starts below the fold, and motion is allowed. */
-.reveal-pending {
-  opacity: 0;
-  transform: translateY(16px);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
-.reveal-in {
-  animation: reveal 0.5s ease-out both;
-  animation-delay: var(--reveal-delay, 0ms);
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#BE185D, #EC4899);
+  border-radius: 9999px;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-.caret {
-  animation: blink 1s step-end infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal-pending {
-    opacity: 1;
-    transform: none;
-  }
-  .reveal-in,
-  .caret {
-    animation: none;
-  }
-}
-
-/* Print (the /resume page) */
+/* Print styles for the resume page */
 @media print {
   .no-print {
     display: none !important;
   }
-  .reveal-pending {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  html,
   body {
     background: #fff !important;
     color: #000 !important;
@@ -193,10 +90,5 @@
   .print-container {
     box-shadow: none !important;
     border: none !important;
-    max-width: none !important;
-    padding: 0 !important;
-  }
-  @page {
-    margin: 12mm;
   }
 }
