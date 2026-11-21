@@ -160,56 +160,62 @@ export const services = [
 ];
 
 // ---------------------------------------------------------------------------
-// SKILLS (with proficiency for progress bars)
+// SKILLS — shown as logo tiles (no percentages). `icon` maps to a logo in
+// src/Components/Skills.jsx.
 // ---------------------------------------------------------------------------
 export const skillGroups = [
   {
     category: "Programming & Web",
     skills: [
-      { name: "HTML & CSS", level: 90 },
-      { name: "JavaScript", level: 80 },
-      { name: "React", level: 78 },
-      { name: "Next.js", level: 68 },
-      { name: "PHP", level: 75 },
-      { name: "REST API", level: 72 },
+      { name: "HTML", icon: "html" },
+      { name: "CSS", icon: "css" },
+      { name: "JavaScript", icon: "javascript" },
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "PHP", icon: "php" },
+      { name: "REST API", icon: "api" },
     ],
   },
   {
     category: "Database & Backend",
     skills: [
-      { name: "MySQL / SQL", level: 82 },
-      { name: "phpMyAdmin", level: 80 },
-      { name: "Supabase", level: 70 },
-      { name: "Google Apps Script", level: 78 },
+      { name: "MySQL / SQL", icon: "mysql" },
+      { name: "phpMyAdmin", icon: "phpmyadmin" },
+      { name: "Supabase", icon: "supabase" },
+      { name: "Google Apps Script", icon: "appsscript" },
     ],
   },
   {
     category: "Tools & Deployment",
     skills: [
-      { name: "Git & GitHub", level: 75 },
-      { name: "Vercel", level: 72 },
-      { name: "VS Code", level: 85 },
+      { name: "Git", icon: "git" },
+      { name: "GitHub", icon: "github" },
+      { name: "Vercel", icon: "vercel" },
+      { name: "VS Code", icon: "vscode" },
     ],
   },
   {
     category: "Office & Productivity",
     skills: [
-      { name: "Microsoft Excel", level: 90 },
-      { name: "Google Sheets", level: 90 },
-      { name: "Microsoft Word / Docs", level: 92 },
-      { name: "PowerPoint / Forms", level: 85 },
+      { name: "Microsoft Excel", icon: "excel" },
+      { name: "Google Sheets", icon: "sheets" },
+      { name: "Microsoft Word", icon: "word" },
+      { name: "Google Docs", icon: "docs" },
+      { name: "PowerPoint", icon: "powerpoint" },
+      { name: "Google Forms", icon: "forms" },
     ],
   },
   {
     category: "Administration & Operations",
     skills: [
-      { name: "Tournament Organizing", level: 90 },
-      { name: "HR & Documentation", level: 82 },
-      { name: "Inventory & Data Entry", level: 88 },
+      { name: "Tournament Organizing", icon: "trophy" },
+      { name: "HR & Documentation", icon: "documents" },
+      { name: "Inventory & Data Entry", icon: "inventory" },
     ],
   },
 ];
 
+// ---------------------------------------------------------------------------
 // Flat skill chips grouped by area (used on the Skills tag cloud)
 export const skillTags = {
   Programming: [

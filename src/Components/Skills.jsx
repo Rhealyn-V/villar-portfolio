@@ -1,58 +1,108 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Percent } from "lucide-react";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiPhp,
+  SiMysql,
+  SiPhpmyadmin,
+  SiSupabase,
+  SiGoogleappsscript,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiGooglesheets,
+  SiGoogledocs,
+  SiGoogleforms,
+} from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
+import { TbApi } from "react-icons/tb";
+import { BsFileEarmarkExcelFill, BsFileEarmarkWordFill, BsFileEarmarkPptFill } from "react-icons/bs";
+import { Trophy, FileText, Boxes, Code2 } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
-import { skillGroups, skillTags, softSkills } from "../data/portfolio";
+import { skillGroups, skillTags } from "../data/portfolio";
 
-const Bar = ({ name, level }) => (
-  <div>
-    <div className="mb-1 flex items-center justify-between text-sm">
-      <span className="font-medium text-slate-800 dark:text-slate-200">{name}</span>
-      <span className="inline-flex items-center rounded-full bg-brand-primary/10 px-2 py-0.5 text-xs font-bold text-brand-primary dark:bg-brand-secondary/15 dark:text-brand-secondary">
-        {level}%
+// Logo + brand colour for each skill. `mono` logos (black brand marks) switch
+// to white in dark mode so they stay visible.
+const logos = {
+  html: { Icon: SiHtml5, color: "#E34F26" },
+  css: { Icon: SiCss3, color: "#1572B6" },
+  javascript: { Icon: SiJavascript, color: "#E5B800" },
+  react: { Icon: SiReact, color: "#149ECA" },
+  nextjs: { Icon: SiNextdotjs, mono: true },
+  php: { Icon: SiPhp, color: "#777BB4" },
+  api: { Icon: TbApi, color: "#BE185D" },
+  mysql: { Icon: SiMysql, color: "#4479A1" },
+  phpmyadmin: { Icon: SiPhpmyadmin, color: "#6C78AF" },
+  supabase: { Icon: SiSupabase, color: "#3ECF8E" },
+  appsscript: { Icon: SiGoogleappsscript, color: "#4285F4" },
+  git: { Icon: SiGit, color: "#F05032" },
+  github: { Icon: SiGithub, mono: true },
+  vercel: { Icon: SiVercel, mono: true },
+  vscode: { Icon: VscVscode, color: "#007ACC" },
+  excel: { Icon: BsFileEarmarkExcelFill, color: "#217346" },
+  sheets: { Icon: SiGooglesheets, color: "#34A853" },
+  word: { Icon: BsFileEarmarkWordFill, color: "#2B579A" },
+  docs: { Icon: SiGoogledocs, color: "#4285F4" },
+  powerpoint: { Icon: BsFileEarmarkPptFill, color: "#D24726" },
+  forms: { Icon: SiGoogleforms, color: "#7248B9" },
+  trophy: { Icon: Trophy, color: "#D97706" },
+  documents: { Icon: FileText, color: "#BE185D" },
+  inventory: { Icon: Boxes, color: "#BE185D" },
+};
+
+const SkillTile = ({ name, icon }) => {
+  const { Icon, color, mono } = logos[icon] || { Icon: Code2, color: "#BE185D" };
+  return (
+    <li className="group flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/80 bg-white/80 p-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-primary/40 hover:shadow-md dark:border-white/10 dark:bg-slate-900/60 dark:hover:border-brand-secondary/40">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-slate-50 ring-1 ring-slate-200/70 transition-transform group-hover:scale-110 dark:bg-slate-800 dark:ring-white/10">
+        <Icon
+          size={22}
+          aria-hidden="true"
+          className={mono ? "text-slate-900 dark:text-white" : undefined}
+          style={mono ? undefined : { color }}
+        />
       </span>
-    </div>
-    <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-200/80 dark:bg-slate-800">
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: `${level}%` }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="h-full rounded-full bg-brand-gradient shadow-sm"
-      />
-    </div>
-  </div>
-);
+      <span className="min-w-0 text-sm font-medium leading-tight text-slate-800 dark:text-slate-200">{name}</span>
+    </li>
+  );
+};
 
 const Skills = () => {
   return (
     <section id="skills" className="section-pad">
       <SectionHeading
-        eyebrow="Skills & Ratings"
+        eyebrow="Skills"
         title="Technical & Professional Skills"
-        subtitle="Comprehensive skill breakdown rated in real proficiency percentages."
+        subtitle="The languages, tools, and platforms I use to build systems and keep operations running."
       />
 
-      {/* Progress bars */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {skillGroups.map((group, i) => (
+      {/* Logo tiles grouped by category */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {skillGroups.map((group, i) => {
+          const fullWidth = skillGroups.length % 2 === 1 && i === skillGroups.length - 1;
+          return (
           <motion.div
             key={group.category}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
-            className="card p-6"
+            className={`card p-6 ${fullWidth ? "md:col-span-2" : ""}`}
           >
-            <h3 className="mb-4 text-base font-bold text-brand-primary dark:text-brand-secondary border-b border-slate-100 pb-2 dark:border-white/10">
+            <h3 className="mb-4 border-b border-slate-100 pb-2 text-base font-bold text-brand-primary dark:border-white/10 dark:text-brand-secondary">
               {group.category}
             </h3>
-            <div className="space-y-4">
+            <ul className={`grid grid-cols-1 gap-3 sm:grid-cols-2 ${fullWidth ? "lg:grid-cols-3" : ""}`}>
               {group.skills.map((s) => (
-                <Bar key={s.name} {...s} />
+                <SkillTile key={s.name} {...s} />
               ))}
-            </div>
+            </ul>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Tag cloud */}
@@ -71,22 +121,6 @@ const Skills = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Soft skills */}
-      <div className="mt-12">
-        <h3 className="mb-4 text-center text-lg font-bold">Soft Skills & Personal Competencies</h3>
-        <div className="flex flex-wrap justify-center gap-3">
-          {softSkills.map((s) => (
-            <span
-              key={s}
-              className="inline-flex items-center gap-2 rounded-full border border-brand-accent/40 bg-brand-accent/10 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200"
-            >
-              <BadgeCheck size={15} className="text-brand-accent" />
-              {s}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );

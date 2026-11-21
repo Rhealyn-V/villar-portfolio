@@ -82,7 +82,7 @@ const Navbar = () => {
             type: "Skill",
             icon: Briefcase,
             title: s.name,
-            subtitle: `${group.category} · ${s.level}% proficiency`,
+            subtitle: group.category,
             link: "/#skills",
           });
         }

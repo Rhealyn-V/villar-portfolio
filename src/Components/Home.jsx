@@ -32,9 +32,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="chip mb-5">
-            <Sparkles size={14} /> {profile.availability}
-          </span>
+          <span className="chip mb-5">{profile.availability}</span>
 
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
             Hi, I'm <span className="gradient-text">Rhealyn Villar</span>

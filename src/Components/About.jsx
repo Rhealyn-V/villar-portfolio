@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Target, Lightbulb, GraduationCap, MapPin, Mail, Briefcase, Trophy } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import Counter from "./ui/Counter";
-import { profile, stats, education } from "../data/portfolio";
+import { profile, stats } from "../data/portfolio";
 
 const highlights = [
   {
