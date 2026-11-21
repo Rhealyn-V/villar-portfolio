@@ -1,57 +1,35 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Download, FileText, Eye, FileType2 } from "lucide-react";
+import { Download, Eye, FileType2 } from "lucide-react";
+import Reveal from "./ui/Reveal";
 import { profile } from "../data/portfolio";
+import { positioning, isRealUrl } from "../data/site";
 
-const ResumeSection = () => {
-  return (
-    <section id="resume" className="section-pad">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="relative overflow-hidden rounded-3xl bg-brand-gradient p-10 text-center text-white shadow-glow sm:p-14"
-      >
-        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10" />
-        <div className="pointer-events-none absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-white/10" />
-
-        <div className="relative">
-          <div className="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-2xl bg-white/20 backdrop-blur">
-            <FileText size={30} />
-          </div>
-          <h2 className="text-3xl font-bold sm:text-4xl">My Resume</h2>
-          <p className="mx-auto mt-3 max-w-xl text-white/90">
-            An ATS-friendly, recruiter-ready summary of my experience, projects, and skills.
-            View it online or download a copy.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/resume"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-primary transition-all hover:scale-105"
-            >
-              <Eye size={16} /> View Resume
-            </Link>
-            <a
-              href={profile.resumeFile}
-              download
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/95 px-6 py-3 text-sm font-semibold text-brand-primary transition-all hover:scale-105"
-            >
-              <Download size={16} /> Download PDF
+// Dark pink band: white text on #9D174D→#BE185D stays above 6:1 (WCAG AA).
+const ResumeSection = () => (
+  <section id="resume" aria-labelledby="resume-title" className="section">
+    <div className="container-page">
+      <Reveal className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-hover to-brand px-6 py-12 text-center text-white sm:px-12 sm:py-16">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-pink-100">Resume</p>
+        <h2 id="resume-title" className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+          {positioning.title}
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-base text-pink-50">{positioning.supportingLine}</p>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link to="/resume" className="btn bg-white text-brand hover:bg-pink-50">
+            <Eye size={16} aria-hidden="true" /> View resume
+          </Link>
+          <a href={profile.resumeFile} download className="btn border border-white/70 text-white hover:bg-white/10">
+            <Download size={16} aria-hidden="true" /> Download PDF
+          </a>
+          {isRealUrl(profile.resumeFileDocx) && (
+            <a href={profile.resumeFileDocx} download className="btn border border-white/70 text-white hover:bg-white/10">
+              <FileType2 size={16} aria-hidden="true" /> Download Word
             </a>
-            <a
-              href={profile.resumeFileDocx}
-              download
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/15"
-            >
-              <FileType2 size={16} /> Download Word
-            </a>
-          </div>
+          )}
         </div>
-      </motion.div>
-    </section>
-  );
-};
+      </Reveal>
+    </div>
+  </section>
+);
 
 export default ResumeSection;

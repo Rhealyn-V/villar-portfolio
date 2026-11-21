@@ -1,105 +1,31 @@
 import { HashLink } from "react-router-hash-link";
-import { Github, Linkedin, Facebook, Mail, ArrowUp, MessageCircle } from "lucide-react";
-import { profile, socials } from "../data/portfolio";
+import { positioning, site, contact } from "../data/site";
+import SocialLinks from "./ui/SocialLinks";
 
-const footerLinks = [
-  { label: "About", to: "/#about" },
-  { label: "Experience", to: "/#experience" },
-  { label: "Skills", to: "/#skills" },
-  { label: "Projects", to: "/#projects" },
-  { label: "Resume", to: "/#resume" },
-  { label: "Contact", to: "/#contact" },
-];
-
-const Footer = () => {
-  return (
-    <footer className="border-t border-slate-200/70 bg-white/60 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/60">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-gradient font-bold text-white">
-                RV
-              </span>
-              <span className="text-lg font-bold">
-                Rhealyn <span className="gradient-text">Villar</span>
-              </span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm text-slate-500 dark:text-slate-400">
-              {profile.title}
-            </p>
-            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              {profile.location}
-            </p>
-          </div>
-
-          {/* Quick links */}
-          <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-              Quick Links
-            </h3>
-            <ul className="grid grid-cols-2 gap-2 text-sm">
-              {footerLinks.map((l) => (
-                <li key={l.to}>
-                  <HashLink
-                    smooth
-                    to={l.to}
-                    className="text-slate-600 transition hover:text-brand-primary dark:text-slate-300 dark:hover:text-brand-secondary"
-                  >
-                    {l.label}
-                  </HashLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-              Connect
-            </h3>
-            <div className="flex gap-3 flex-wrap">
-              {[
-                { icon: Github, href: socials.github, label: "GitHub" },
-                { icon: Linkedin, href: socials.linkedin, label: "LinkedIn" },
-                { icon: Facebook, href: socials.facebook, label: "Facebook" },
-                { icon: MessageCircle, href: socials.viber, label: "Viber" },
-                { icon: Mail, href: `mailto:${socials.email}`, label: "Email" },
-              ].map(({ icon: Icon, href, label }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-slate-200/70 bg-white/70 text-brand-primary transition-all hover:scale-110 hover:bg-brand-primary hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-brand-secondary dark:hover:bg-brand-secondary dark:hover:text-slate-900"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
-            </div>
-            <a href={`mailto:${socials.email}`} className="btn-primary mt-5 text-xs">
-              <Mail size={14} /> Email Me
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-200/70 pt-6 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400 sm:flex-row">
-          <p className="flex items-center gap-1.5">
-            © {new Date().getFullYear()} Rhealyn Villar.
-          </p>
-          <HashLink
-            smooth
-            to="/#home"
-            className="inline-flex items-center gap-1.5 text-brand-primary hover:text-brand-secondary dark:text-brand-secondary"
-          >
-            Back to top <ArrowUp size={14} />
-          </HashLink>
-        </div>
+const Footer = () => (
+  <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+    <div className="container-page flex flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
+      <div className="max-w-md">
+        <p className="text-lg font-bold text-slate-900 dark:text-white">{site.name}</p>
+        <p className="text-accent mt-1 text-sm font-semibold">{positioning.title}</p>
+        <p className="text-muted mt-3 text-sm leading-relaxed">{positioning.supportingLine}</p>
+        <p className="text-muted mt-3 text-sm">{contact.location}</p>
       </div>
-    </footer>
-  );
-};
+      <div>
+        <p className="mb-3 text-sm font-semibold text-slate-900 dark:text-white">Get in touch</p>
+        <SocialLinks />
+        <a href={`mailto:${contact.email}`} className="link mt-4 inline-block text-sm">
+          {contact.email}
+        </a>
+      </div>
+    </div>
+    <div className="container-page flex flex-col items-center justify-between gap-3 border-t border-slate-200 py-6 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 sm:flex-row">
+      <p>© {new Date().getFullYear()} {site.name}</p>
+      <HashLink smooth to="/#home" className="link">
+        Back to top
+      </HashLink>
+    </div>
+  </footer>
+);
 
 export default Footer;

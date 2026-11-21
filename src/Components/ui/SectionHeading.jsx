@@ -1,29 +1,13 @@
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
 
-const SectionHeading = ({ eyebrow, title, subtitle, align = "center" }) => {
-  const alignment = align === "left" ? "text-left items-start" : "text-center items-center";
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
-      className={`mb-12 flex flex-col ${alignment}`}
-    >
-      {eyebrow && (
-        <span className="chip mb-3 uppercase tracking-wider">{eyebrow}</span>
-      )}
-      <h2 className="text-3xl font-bold sm:text-4xl">
-        <span className="gradient-text">{title}</span>
-      </h2>
-      {subtitle && (
-        <p className="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-300">
-          {subtitle}
-        </p>
-      )}
-      <span className="mt-5 h-1 w-20 rounded-full bg-brand-gradient" />
-    </motion.div>
-  );
-};
+const SectionHeading = ({ id, eyebrow, title, subtitle, align = "left" }) => (
+  <Reveal className={`mb-10 max-w-2xl md:mb-12 ${align === "center" ? "mx-auto text-center" : ""}`}>
+    {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+    <h2 id={id} className="text-3xl font-bold tracking-tight sm:text-4xl">
+      {title}
+    </h2>
+    {subtitle && <p className="text-muted mt-4 text-base leading-relaxed">{subtitle}</p>}
+  </Reveal>
+);
 
 export default SectionHeading;
