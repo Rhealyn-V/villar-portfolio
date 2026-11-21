@@ -13,21 +13,21 @@ const About = () => (
           From operations to code
         </h2>
         <p className="mt-4 text-base leading-relaxed text-slate-700 dark:text-slate-300">{profile.about}</p>
-        <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-3">
+        <ul className="mt-6 grid gap-4 text-sm sm:grid-cols-3">
           {[
             { icon: GraduationCap, label: "Education", value: profile.degree },
             { icon: MapPin, label: "Based in", value: contact.location },
             { icon: Briefcase, label: "Focus", value: "Business systems & automation" },
           ].map(({ icon: Icon, label, value }) => (
-            <div key={label} className="flex gap-3">
+            <li key={label} className="flex gap-3">
               <Icon size={18} aria-hidden="true" className="text-accent mt-0.5 shrink-0" />
               <div>
-                <dt className="text-muted text-xs font-medium uppercase tracking-wide">{label}</dt>
-                <dd className="mt-0.5 font-medium text-slate-900 dark:text-slate-100">{value}</dd>
+                <p className="text-muted text-xs font-medium uppercase tracking-wide">{label}</p>
+                <p className="mt-0.5 font-medium text-slate-900 dark:text-slate-100">{value}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </dl>
+        </ul>
       </Reveal>
 
       <Reveal as="dl" delay={80} className="grid grid-cols-2 gap-3 sm:gap-4">

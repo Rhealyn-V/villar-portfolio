@@ -1,51 +1,91 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Rhealyn Villar | Junior Web Developer, IT Support & Bookkeeping Assistant</title>
+    <!-- Keep these in sync with src/data/site.js (seo + positioning) -->
+    <title>Rhealyn Villar | Junior Web Developer — Business Systems &amp; Automation</title>
     <meta
       name="description"
-      content="Portfolio of Rhealyn Villar — Junior Web Developer, IT Support Specialist, Administrative & Bookkeeping Assistant based in Naic, Cavite, Philippines. Building web apps and automating business processes with React, PHP, MySQL, and Supabase."
-    />
-    <meta
-      name="keywords"
-      content="Rhealyn Villar, Web Developer Philippines, Junior Web Developer, IT Support, Bookkeeping Assistant, Administrative Assistant, React Developer, PHP Developer, MySQL, Supabase, Google Apps Script, Naic Cavite, Portfolio"
+      content="I build web apps that replace manual, paper-based processes, backed by hands-on experience in admin, IT support, and operations. Based in Naic, Cavite, Philippines."
     />
     <meta name="author" content="Rhealyn Villar" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#BE185D" />
+    <link rel="canonical" href="https://villar-portfolio.vercel.app/" />
+    <meta name="theme-color" content="#F8FAFC" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Rhealyn Villar | Junior Web Developer & Bookkeeping Professional" />
+    <meta property="og:site_name" content="Rhealyn Villar" />
+    <meta property="og:url" content="https://villar-portfolio.vercel.app/" />
+    <meta property="og:title" content="Rhealyn Villar | Junior Web Developer — Business Systems &amp; Automation" />
     <meta
       property="og:description"
-      content="I help businesses improve efficiency through technology — web development, IT support, and bookkeeping. Explore my projects and resume."
+      content="I build web apps that replace manual, paper-based processes, backed by hands-on experience in admin, IT support, and operations."
     />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="https://villar-portfolio.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rhealyn Villar — Junior Web Developer, Business Systems & Automation" />
+    <meta property="og:locale" content="en_PH" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rhealyn Villar | Junior Web Developer & Bookkeeping Professional" />
+    <meta name="twitter:title" content="Rhealyn Villar | Junior Web Developer — Business Systems &amp; Automation" />
     <meta
       name="twitter:description"
-      content="Portfolio, projects and resume of Rhealyn Villar — Web Developer, IT Support & Bookkeeping Assistant."
+      content="I build web apps that replace manual, paper-based processes, backed by hands-on experience in admin, IT support, and operations."
     />
+    <meta name="twitter:image" content="https://villar-portfolio.vercel.app/og-image.jpg" />
 
-    <!-- Fonts: Lexend -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rhealyn Villar",
+        "jobTitle": "Junior Web Developer — Business Systems & Automation",
+        "description": "I build web apps that replace manual, paper-based processes, backed by hands-on experience in admin, IT support, and operations.",
+        "url": "https://villar-portfolio.vercel.app/",
+        "image": "https://villar-portfolio.vercel.app/images/profile.webp",
+        "email": "mailto:villar.rhealyn.01@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Naic",
+          "addressRegion": "Cavite",
+          "addressCountry": "PH"
+        },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Cavite State University" },
+        "knowsAbout": ["React", "PHP", "MySQL", "Google Apps Script", "Business process automation", "IT support"],
+        "sameAs": ["https://github.com/rhealyn-v"]
+      }
+    </script>
+
+    <link rel="preload" href="/fonts/lexend-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Apply the saved theme (or OS preference) before first paint -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="font-family: system-ui, sans-serif; padding: 2rem; max-width: 40rem">
+        Rhealyn Villar — Junior Web Developer, Business Systems &amp; Automation. This site needs JavaScript.
+        Email <a href="mailto:villar.rhealyn.01@gmail.com">villar.rhealyn.01@gmail.com</a> or view the
+        <a href="/Rhealyn-Villar-Resume.pdf">resume (PDF)</a>.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
