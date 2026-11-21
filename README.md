@@ -1,56 +1,51 @@
-# Rhealyn Villar — Professional Portfolio
+# Rhealyn Villar — Portfolio
 
-A modern, responsive, ATS-aware developer portfolio for **Rhealyn Villar** —
-Admin Assistant · IT Support · Junior Web Developer · Bookkeeping Assistant.
+**Junior Web Developer — Business Systems & Automation.**
+I build web apps that replace manual, paper-based processes, backed by hands-on experience
+in admin, IT support, and operations.
 
-Built with **React + Vite + Tailwind CSS + Framer Motion + Lucide Icons**.
+Live: https://villar-portfolio.vercel.app
 
-## ✨ Features
+## Stack
 
-- **Single-page portfolio** with smooth-scroll sections: Hero, About, Experience timeline,
-  Skills (progress bars + tag cloud + soft skills), Services, Featured Projects,
-  Certificates & Achievements, Resume CTA, Contact form, Footer.
-- **Dedicated printable resume** at `/resume` (ATS-friendly, one-click Print → Save as PDF).
-- **Dark / Light mode** with persistence.
-- **Animated** hero typing effect, count-up statistics, scroll-reveal, glassmorphism, rounded cards.
-- **SEO-ready** meta tags, Open Graph, and keywords (`index.html`).
-- **Brand system:** Lexend font; palette `#BE185D`, `#EC4899`, `#FFB544`, `#F8FAFC`, `#0F172A`.
-- **All content in one file** — `src/data/portfolio.js`.
+React 19 · Vite 7 · Tailwind CSS 3 · React Router 7 · lucide-react / react-icons.
+No animation library: scroll reveals are a tiny CSS + IntersectionObserver enhancement
+(`src/Components/ui/Reveal.jsx`) that never hides content when JS is missing.
 
-## 🚀 Getting started
+## Run it
 
 ```bash
 npm install
-npm run dev        # local dev server
-npm run build      # production build → dist/
-npm run preview    # preview the production build
-npm run lint       # lint
+npm run dev       # local dev server
+npm run build     # production build → dist/
+npm run preview   # serve the build
+npm run lint
 ```
 
-## ✍️ How to customize
+## Where things live
 
 | To change… | Edit |
 |---|---|
-| Text, skills, projects, experience, socials, contact | `src/data/portfolio.js` |
-| Colors, fonts, shadows | `tailwind.config.js` |
-| SEO title / description / keywords | `index.html` |
-| Your photo | replace `public/mypicture.jpg` (also `favicon.jpg`, `og-image.jpg`) |
-| Downloadable resume | replace `public/Rhealyn-Villar-Resume.pdf` (PDF) and `public/Rhealyn-Villar-Resume.docx` (Word), or use `/resume` → Print → Save as PDF |
+| Positioning, SEO text, email/phone, social links | `src/data/site.js` (+ mirror SEO text in `index.html`) |
+| Projects, case studies, experience, skills, tournaments, certifications | `src/data/portfolio.js` |
+| Colours, radius, shadows | `tailwind.config.js`, `src/index.css` |
+| Case-study screenshots | `public/projects/<slug>/` (see README in each folder) |
+| Sitemap (add new case studies) | `public/sitemap.xml` |
 
-> Search the codebase for `[PLACEHOLDER]`-style markers (e.g. `[COMPANY NAME]`,
-> `[YOUR PHONE NUMBER]`) and fill in your real details.
+Stats on the site (projects built, live deployments, technologies) are computed from the
+data, so they can't drift out of sync. Social links with an empty URL are hidden.
 
-## 📄 Documents
+## Contact form
 
-- `docs/RESUME.md` — ATS-friendly **and** recruiter-friendly resume text.
-- `docs/BRANDING_AND_SEO.md` — headlines, meta description, keywords, About Me,
-  professional summary, project descriptions, and personal-brand tips.
+Set `VITE_FORMSPREE_ID` (see `.env.example`) locally and in Vercel → Settings →
+Environment Variables. Without it, the Contact section shows a direct Email / Viber call to
+action instead of a form.
 
-## ☁️ Deploy
+## Resume PDF
 
-Deploy the `dist/` output to **Vercel**, **Netlify**, or **GitHub Pages**.
-On Vercel: import the repo, framework **Vite**, build `npm run build`, output `dist`.
+`public/Rhealyn-Villar-Resume.pdf` is generated from the `/resume` page. After editing data,
+open `/resume` → Print → Save as PDF (A4, margins default) and replace the file.
 
----
+## Outstanding TODOs
 
-Built with React & Tailwind CSS.
+See [`TODO.md`](./TODO.md).
